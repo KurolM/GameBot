@@ -1,3 +1,4 @@
+import pyautogui
 from PIL import Image
 
 
@@ -13,7 +14,9 @@ def check_image():
     im.save('Enter_game.jpg')  # Save the modified pixels as .png
 
     """If the 47, 7 pixel is (116, 94, 254) coloured"""
-    if pix[47, 7] == (116, 94, 254) or pix[47, 7] == (115, 95, 252):
+    if pix[47, 7] == (116, 94, 254) or pix[47, 7] == (115, 95, 252) or pix[47, 7] == (13, 70, 219):
+        pyautogui.write("utevo lux", 0.05)
+        pyautogui.press('enter')
         print("utevo lux")
     else:
         print("not yet")

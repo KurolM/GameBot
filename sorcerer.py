@@ -4,6 +4,8 @@ def sorcerer(level=None):  # optional argument with a default value
 
     calculated_mana, calculated_hp = get_calculated_hp_and_mana(level)
 
+    print(f'You are at level: {level} with mana: {calculated_mana} and hp: {calculated_hp}.')
+
     return calculated_mana, calculated_hp
 
 

@@ -3,26 +3,29 @@ from PIL import Image
 
 
 def check_image():
+
+    """PIL DOC `This is a lazy operation; this function identifies the file,
+     but the file remains open and the actual image data is not read from the file until you try to process the data`"""
+    im = Image.open('mana.jpg')  # Can be many different formats.
+    pix = im.load()
+
     x = 47
     y = 7
 
-    im = Image.open('Enter_game.jpg')  # Can be many different formats.
-    pix = im.load()
-
     magic_pixel = pix[x, y]
-    valid_colors = [
+    mana_color_grey = [
         (116, 94, 254),
         (115, 95, 252)
     ]
 
     print(im.size)  # Get the width and height of the image for iterating over
-    print(pix[x, y])  # Get the RGBA Value of the a pixel of an image
+    print(magic_pixel)  # Get the RGBA Value of the a pixel of an image
 
-    im.save('Enter_game.jpg')  # Save the modified pixels as .png
+    im.save('mana.jpg')  # Save the modified pixels as .png
 
     """If the 47, 7 pixel is (116, 94, 254) coloured"""
-    if magic_pixel in valid_colors:
-        pyautogui.write("utevo lux", 0.05)
+    if magic_pixel in mana_color_grey:
+        pyautogui.press('f1', 0.05)
         pyautogui.press('enter')
     else:
         print("not yet")

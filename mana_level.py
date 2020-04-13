@@ -9,6 +9,7 @@ def picture_of_mana():
     user32 = windll.user32
     user32.SetProcessDPIAware()
 
+    # 113 x 16 rectangle
     # mana box grabber (100% mana) // 1920 / 1080 - resolution of Dell Precision laptop
     mana_box_100 = ImageGrab.grab(bbox=(1723, 246, 1836, 260))
     mana_box_100_np = np.array(mana_box_100)
